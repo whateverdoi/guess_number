@@ -40,7 +40,13 @@ fn input_guess_number() -> u32 {
     println!("请输入一个数字：");
     let mut guess = String::new();
     io::stdin().read_line(&mut guess).expect("出错了");
-    let guess = guess.trim().parse::<u32>().expect("请输入一个数字");
+    let guess = match guess.trim().parse::<u32>() {
+        Ok(num) => num,
+        Err(_) => {
+            println!("请输入一个有效的数字！");
+            return input_guess_number();
+        }
+    };
     println!("你猜的数字是：{}", guess);
     guess
 }
