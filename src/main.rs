@@ -5,7 +5,7 @@ fn main() {
     let mut count = 0;
     let max_count = 10;
     println!("猜数字游戏,范围为1-100，你有{}次机会", max_count);
-
+    
     let sercret_number = gen_random_number();
     //把输入的字符串转换成数字
 
